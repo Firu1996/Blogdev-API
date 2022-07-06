@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 });
 
 //Database
-import './config/database'
+import "./config/database";
 
 // server linstenning
 const PORT = process.env.PORT || 5000;
