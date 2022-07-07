@@ -13,9 +13,8 @@ app.use(morgan("dev"));
 app.use(cookieParser());
 
 // Routes
-app.get("/", (req, res) => {
-  res.json({ msg: "Hello World" });
-});
+import routes from "./routes/index";
+app.use("/api", routes.authRouter);
 
 //Database
 import "./config/database";
