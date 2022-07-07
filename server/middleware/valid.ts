@@ -12,9 +12,9 @@ export const validRegister = async (req: Request, res: Response, next: NextFunct
   }
 
   if (!account) {
-    errors.push("Please add your email or phone number.");
-  } else if (!validPhone(account) && !validateEmail(account)) {
-    errors.push("Email or phone number format is incorrect.");
+    errors.push("Please add your email.");
+  } else if (!validateEmail(account)) {
+    errors.push("Email format is incorrect.");
   }
 
   if (password.length < 8) {
@@ -25,11 +25,6 @@ export const validRegister = async (req: Request, res: Response, next: NextFunct
 
   next();
 };
-
-export function validPhone(phone: string) {
-  const re = /^[+]/g;
-  return re.test(phone);
-}
 
 export function validateEmail(email: string) {
   const re =
