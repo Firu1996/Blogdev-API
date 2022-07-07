@@ -7,7 +7,7 @@ const CLIENT_ID = `${process.env.MAIL_CLIENT_ID}`;
 const CLIENT_SECRET = `${process.env.MAIL_CLIENT_SECRET}`;
 const REFRESH_TOKEN = `${process.env.MAIL_REFRESH_TOKEN}`;
 const SENDER_MAIL = `${process.env.SENDER_EMAIL_ADDRESS}`;
-
+const GENERATE_EMAIL_PASSWORD = `${process.env.GENERATE_EMAIL_PASSWORD}`;
 // send mail
 const sendEmail = async (to: string, url: string, txt: string) => {
   const oAuth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, OAUTH_PLAYGROUND);
@@ -22,6 +22,7 @@ const sendEmail = async (to: string, url: string, txt: string) => {
       auth: {
         type: "OAuth2",
         user: SENDER_MAIL,
+        // pass: GENERATE_EMAIL_PASSWORD,
         clientId: CLIENT_ID,
         clientSecret: CLIENT_SECRET,
         refreshToken: REFRESH_TOKEN,
